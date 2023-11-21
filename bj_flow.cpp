@@ -130,7 +130,7 @@ void bj_flow::step_transverse()
 	double deta2 = deta * deta;
 	
 	double tMst = Mst(t);
-	//double tdMst = dMst(t);
+	double tdMst = dMst(t);
 	double tetas = etas(t);
 	double deta_u = (u[1] - u[Nl - 1]) / (ddt);
 	double d2eta_u = (u[1] + u[Nl - 1] - 2 * u[0]) / deta2;
@@ -138,6 +138,7 @@ void bj_flow::step_transverse()
 	for (int i = 1; i < Nl - 1; i++)
 	{
 		deta_u = (u[i + 1] - u[i - 1]) / (ddt);
+        d2eta_u = (u[i+1] + u[i - 1] - 2 * u[i]) / deta2;
 		tu[i] = -(1. / t) * u[i] + tetas / t2 * d2eta_u / tMst;
 	}
 	deta_u = -(u[Nl - 2] - u[0]) / (ddt);

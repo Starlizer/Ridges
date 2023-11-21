@@ -8,7 +8,7 @@ class bj_flow
 	const double eta_max = 5;
 	const int Nl = 501;
 	const int pow_pol = 11;
-	std::string name_rho = "0n0";
+	std::string name_rho = "0   n0";
 	const double dt = 0.001 * 2 * eta_max /(Nl-1);
 	const double deta = 2 * eta_max / (Nl - 1);
 	const double t_start = 1;
